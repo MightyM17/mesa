@@ -2751,8 +2751,7 @@ dri2_query_dma_buf_formats(_EGLDisplay *disp, EGLint max,
    if (max < 0 || (max > 0 && formats == NULL))
       return _eglError(EGL_BAD_PARAMETER, "invalid value for max count of formats");
 
-   if (dri2_dpy->image->base.version < 15 ||
-       dri2_dpy->image->queryDmaBufFormats == NULL)
+   if (dri2_dpy->image->queryDmaBufFormats == NULL)
       return EGL_FALSE;
 
    if (!dri2_dpy->image->queryDmaBufFormats(dri2_dpy->dri_screen, max,
