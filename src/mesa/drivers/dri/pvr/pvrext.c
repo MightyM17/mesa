@@ -226,6 +226,7 @@ static __DRIimageExtension pvrDRIImage =
 	.createImageFromTexture		= PVRDRICreateImageFromTexture,
 	.createImageFromFds		= PVRDRICreateImageFromFds,
 	.createImageFromDmaBufs		= PVRDRICreateImageFromDmaBufs,
+	.queryDmaBufFormats		= PVRDRIQueryDmaBufFormats,
 	.createImageFromRenderbuffer2	= PVRDRICreateImageFromRenderbuffer2,
 #if defined(EGL_IMG_cl_image)
 	.createImageFromBuffer		= PVRDRICreateImageFromBuffer,

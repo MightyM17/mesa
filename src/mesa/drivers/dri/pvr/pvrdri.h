@@ -287,6 +287,9 @@ IMG_YUV_COLORSPACE PVRDRIToIMGColourSpace(const PVRDRIImageFormat *psFormat,
 IMG_YUV_CHROMA_INTERP PVRDRIChromaSittingToIMGInterp(const PVRDRIImageFormat *psFormat,
 						     enum __DRIChromaSiting eChromaSitting);
 
+GLboolean PVRDRIQueryDmaBufFormats(__DRIscreen *screen, int max,
+				   int *formats, int *count);
+
 /*************************************************************************/ /*!
  pvrdrawable.c
 */ /**************************************************************************/

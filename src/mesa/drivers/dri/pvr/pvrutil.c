@@ -690,6 +690,39 @@ IMG_YUV_CHROMA_INTERP PVRDRIChromaSittingToIMGInterp(const PVRDRIImageFormat *ps
 	}
 }
 
+GLboolean PVRDRIQueryDmaBufFormats(__DRIscreen *screen, int max,
+				   int *formats, int *count)
+{
+	PVRDRIScreen *psPVRScreen = screen->driverPrivate;
+	int i, j;
+
+	/*assert(psPVRScreen->iNumFormats != 0);
+
+	if (psPVRScreen->iNumFormats < 0)
+	{
+		return GL_FALSE;
+	}
+
+	if (!max)
+	{
+		*count = psPVRScreen->iNumFormats;
+		return GL_TRUE;
+	}*/
+
+	for (i = 0, j = 0; i < ARRAY_SIZE(g_asFormats) && j < max; i++)
+	{
+		/*if (psPVRScreen->pbHasFormat[i])
+		{
+			formats[j++] = g_asFormats[i].iDRIFourCC;
+		}*/
+		formats[j++] = g_asFormats[i].iDRIFourCC;
+	}
+
+	*count = j;
+
+	return GL_TRUE;
+}
+
 bool PVRMutexInit(pthread_mutex_t *psMutex, int iType)
 {
 	int res;
