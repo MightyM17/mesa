@@ -2560,7 +2560,7 @@ eglQueryDmaBufFormatsEXT(EGLDisplay dpy, EGLint max_formats,
 
    ret = disp->Driver->QueryDmaBufFormatsEXT(disp, max_formats, formats, num_formats);
 
-   RETURN_EGL_EVAL(disp, ret);
+   RETURN_EGL_EVAL(disp, EGL_FALSE);
 }
 
 static EGLBoolean EGLAPIENTRY
