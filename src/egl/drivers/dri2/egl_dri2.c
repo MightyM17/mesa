@@ -71,6 +71,7 @@
 #include "util/u_math.h"
 
 #define NUM_ATTRIBS 12
+#define DEBUG
 
 static const struct dri2_pbuffer_visual {
    const char *format_name;
@@ -2753,26 +2754,26 @@ dri2_query_dma_buf_formats(_EGLDisplay *disp, EGLint max,
 
    _eglLog(_EGL_DEBUG, "base version is `%s'", dri2_dpy->image->base.version);
    /*if (dri2_dpy->image->base.version < 15 ||
-       dri2_dpy->image->queryDmaBufFormats == NULL)*/
-   return EGL_FALSE;
+       dri2_dpy->image->queryDmaBufFormats == NULL)
+      return EGL_FALSE;
 
    if (!dri2_dpy->image->queryDmaBufFormats(dri2_dpy->dri_screen, max,
                                             formats, count))
-      return EGL_FALSE;
+      return EGL_FALSE;*/
 
-   if (max > 0) {
+   //if (max > 0) {
       /* Assert that all of the formats returned are actually fourcc formats.
        * Some day, if we want the internal interface function to be able to
        * return the fake fourcc formats defined in dri_interface.h, we'll have
        * to do something more clever here to pair the list down to just real
        * fourcc formats so that we don't leak the fake internal ones.
        */
-      for (int i = 0; i < *count; i++) {
+      /*for (int i = 0; i < *count; i++) {
          assert(dri2_num_fourcc_format_planes(formats[i]) > 0);
       }
-   }
+   }*/
 
-   return EGL_TRUE;
+   return EGL_FALSE;
 }
 
 static EGLBoolean
